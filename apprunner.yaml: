@@ -1,0 +1,27 @@
+version: 1.0
+source:
+  type: git
+  repositoryUrl: "https://github.com/blessonthomas27/express-hello-world"
+  branch: "main" 
+  configurationSource: api
+  codeConfiguration:
+    configurationValues:
+      runtime: "nodejs16"
+      buildCommand: "npm install"
+      startCommand: "npm start"
+instanceConfiguration:
+  cpu: "1 vCPU"
+  memory: "2 GB"
+autoScalingConfiguration:
+  minInstances: 1
+  maxInstances: 1
+healthCheckConfiguration:
+  protocol: "HTTP"
+  path: "/"
+  interval: 10
+  timeout: 5
+  healthyThreshold: 2
+  unhealthyThreshold: 5
+tags:
+  - key: "Environment"
+    value: "Production"
